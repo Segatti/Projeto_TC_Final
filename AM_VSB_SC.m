@@ -16,7 +16,7 @@ pkg load tisean
 fs = 10000;
 t = [0:1/fs:1];
 fc = 1000; %frequência portadora
-fm = 100; %frequencia mensagem
+fm = 50; %frequencia mensagem
 ac = 2; %amplitude portadora
 am = 1; %amplitude sinal mensagem
 
@@ -47,7 +47,7 @@ endfunction
 #AM
 wm = 2*pi*fm; %omega mensagem
 wc = 2*pi*fc; %omega portadora
-mt = record(4);#am*cos(wm*t)+2*sinc(wm*t); %sinal mensagem
+mt = am*cos(wm*t);%+2*sinc(wm*t); %sinal mensagem
 [fft_mt, fq_mt] = my_fft(mt, fm);
 m_ac = ac*cos(wc*t); %sinal portadora
 [fft_mc, fq_mc] = my_fft(m_ac, fc);
